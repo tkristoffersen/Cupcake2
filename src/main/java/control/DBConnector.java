@@ -16,25 +16,34 @@ import java.sql.SQLException;
  */
 public class DBConnector {
 
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://138.68.107.145:3306/TommyDB";
-    private static final String USER = "tk";
-    private static final String PASSWORD = "MYto0706**";
-    private static Connection conn = null;
+  private Connection con;
+    
+    private static String driver = "com.mysql.jdbc.Driver";
+    private static String URL = "jdbc:mysql://138.68.107.145:3306/cupcakes";
+    private static String id = "tk";
+    private static String pw = "MYto0706**";
 
     public static Connection getConnection() {
-        if (conn == null) {
-            try {
-                Class.forName(DRIVER);
-                conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
-            } catch (SQLException ex) {
-                //se hele sekvenst til det gik galt. Dette kan skrives til logfil.
-                ex.printStackTrace();
-            }
+        Connection con = null;
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(URL, id, pw);  // The connection will be released upon program 
+
+        } catch (Exception e) {
+            System.out.println("\n*** Remember to insert your  ID and PW in the DBConnector class! ***\n");
+            System.out.println("error in DBConnector.getConnection()");
+            System.out.println(e);
         }
-        return conn;
+
+        return con;
+    }
+
+    public void releaseConnection(Connection con) {
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     public static void main(String[] args) {
