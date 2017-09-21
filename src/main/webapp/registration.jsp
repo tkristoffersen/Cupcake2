@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrer</title>
+        <title>Registrering</title>
     </head>
     <body>
         <h1>Registrer dig her</h1>
-        <form action="RegistrationController">       
+        
+        <form action="RegistrationController">   
             <b>Username:</b><br>
             <input type="text" name="u_name" value=""><br><br>
             <b>Password:</b><br>
@@ -23,7 +24,7 @@
             <b>Email:</b><br>
             <input type="text" name="u_email" value=""><br><br>
 
-            <input type="submit" name="submit" value="Register">
+            <input type="submit" name="submit" value="Registrer">
         </form>
         <br>
 

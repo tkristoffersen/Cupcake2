@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package control;
 
 import control.DBConnector;
+import entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,12 +17,12 @@ import java.sql.Statement;
  *
  * @author tobbe
  */
-public class Usermapper {
+public class UserMapper {
 
     public User getUserByName(String name) {
         User output = null;
         try {
-            String sql = "SELECT u_id,u_name, u_pass, u_balance, u_ email FROM cupcakes.users where username='" + name+"'";
+            String sql = "SELECT u_id, u_name, u_pass, u_balance, u_email FROM Nydatabase.users where username='" + name+"'";
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
@@ -48,7 +49,7 @@ public class Usermapper {
     public User getUserByID(int id) {
         User output = null;
         try{
-            String sql = "SELECT u_id,u_name, u_pass, u_balance, u_ email FROM cupcakes.users where u_id='" + id;
+            String sql = "SELECT u_id, u_name, u_pass, u_balance, u_email FROM Nydatabase.users where u_id='" + id;
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             int u_id = 0;
@@ -63,7 +64,7 @@ public class Usermapper {
                 u_balance = rs.getDouble("u_balance");
                 u_email = rs.getString("u_email");
             }
-            output = new User(u_name, u_pass, u_balance, u_email);
+            output = new User( u_name, u_pass, u_balance, u_email);
             output.setu_id(id);
         }catch (Exception e) {
             return null;
@@ -73,13 +74,14 @@ public class Usermapper {
     
     public void putUser(User user) throws SQLException {
         
+        int u_id = user.getu_id();
         String u_name = user.getu_name();
         String u_pass = user.getu_pass();
         double u_balance = user.getu_balance();
         String u_email = user.getu_email();
         //String name, String password, double balance, String email
         Connection conn = DBConnector.getConnection();
-        String insertUser = "INSERT INTO cupcakes.users ("
+        String insertUser = "INSERT INTO Nydatabase.users ("
                 + "u_name, u_pass, u_balance, u_email)"
                 + "VALUES (?, ?, ?, ?);";
         PreparedStatement recipePstmt = conn.prepareStatement(insertUser);

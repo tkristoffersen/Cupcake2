@@ -11,18 +11,18 @@ package entity;
  */
 public class User {
 
-    private int u_id;
-    private String u_name;
-    private String u_pass;
-    private double u_balance;
-    private String u_email;
+    int u_id;
+    String u_name;
+    String u_pass;
+    double u_balance;
+    String u_email;
 
     public User(String name, String password, double balance, String email) {
-        //u_id = id;
-        u_name = name;
-        u_pass = password;
-        u_balance = balance;
-        u_email = email;
+        //this.u_id = id;
+        this.u_name = name;
+        this.u_pass = password;
+        this.u_balance = balance;
+        this.u_email = email;
     }
 
     public void setu_id(int id) {

@@ -6,7 +6,6 @@
 package control;
 
 import entity.User;
-import entity.Usermapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -36,14 +35,14 @@ public class RegistrationController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        Usermapper um = new Usermapper();
+        UserMapper um = new UserMapper();
 
         String u_name = request.getParameter("u_name");
         User testNameUser = um.getUserByName(u_name);
 
         if (testNameUser.getu_id() != 0) {
-            request.getRequestDispatcher("error_user_exist.jsp").forward(request, response);
-
+            request.getRequestDispatcher("error_user_exist.jsp")
+                    .forward(request, response);
         } else {
             String u_pass = request.getParameter("u_pass");
             double u_balance = Double.parseDouble(request.getParameter("u_balance"));
@@ -53,14 +52,14 @@ public class RegistrationController extends HttpServlet {
 
             try {
                 um.putUser(newUser);
-                request.getRequestDispatcher("register_completed.jsp").forward(request, response);
+                request.getRequestDispatcher("register_completed.jsp")
+                        .forward(request, response);
+
             } catch (SQLException ex) {
-                request.getRequestDispatcher("error_not_registered.jsp").forward(request, response);
-
+                request.getRequestDispatcher("error_not_registered.jsp").
+                        forward(request, response);
             }
-
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

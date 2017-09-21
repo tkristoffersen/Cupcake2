@@ -16,18 +16,18 @@ import java.sql.SQLException;
  */
 public class DBConnector {
 
-  private Connection con;
+  private Connection conn;
     
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String URL = "jdbc:mysql://138.68.107.145:3306/cupcakes";
+    private static String URL = "jdbc:mysql://138.68.107.145:3306/Nydatabase";
     private static String id = "tk";
     private static String pw = "MYto0706**";
 
     public static Connection getConnection() {
-        Connection con = null;
+        Connection conn = null;
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection(URL, id, pw);  // The connection will be released upon program 
+            conn = DriverManager.getConnection(URL, id, pw);  // The connection will be released upon program 
 
         } catch (Exception e) {
             System.out.println("\n*** Remember to insert your  ID and PW in the DBConnector class! ***\n");
@@ -35,7 +35,7 @@ public class DBConnector {
             System.out.println(e);
         }
 
-        return con;
+        return conn;
     }
 
     public void releaseConnection(Connection con) {
@@ -52,7 +52,7 @@ public class DBConnector {
             String sql = "SELECT * from users";
             ResultSet rs = getConnection().prepareStatement(sql).executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getString("u_id"));
+                System.out.println(rs.getString("u_name"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
