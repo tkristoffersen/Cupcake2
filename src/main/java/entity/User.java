@@ -15,13 +15,15 @@ public class User
     private String u_name;
     private String u_pass;
     private double u_balance;
+    private String u_email;
     
-    public User(int id, String name, String pword, double bl)
+    public User(int id, String name, String pword, double bl, String email)
     {
         u_id = id;
         u_name = name;
         u_pass = pword;
         u_balance = bl;
+        u_email = email;
     }
 
     public double getu_balance()
@@ -64,4 +66,17 @@ public class User
     {
         this.u_pass = u_pass;
     }
+    
+     public String gete_mail(String u_email)
+    {
+        
+        return u_email;
+    }
+    
+    public void setu_email(String u_email)
+    {
+        
+        this.u_email = u_email;
+    }
+   
 }

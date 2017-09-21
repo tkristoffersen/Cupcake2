@@ -15,11 +15,11 @@ import java.sql.Statement;
  *
  * @author lucas kuhn
  */
-public class usermapper {
+public class Usermapper {
 
     private Connection con;
 
-    public usermapper() {
+    public Usermapper() {
         con = new DBConnector().getConnection();
     }
 
@@ -39,7 +39,8 @@ public class usermapper {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getInt(4));
+                        rs.getInt(4),
+                        rs.getString(5));
                         
                 
             }
