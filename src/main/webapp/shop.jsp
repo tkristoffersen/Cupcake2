@@ -12,6 +12,29 @@
         <title>Webshop</title>
     </head>
     <body>
-        <h1>Her er shoppen...</h1>
+        <h1>Velkommen <% out.println(session.getAttribute("username"));%> Din Balance er <% out.println(session.getAttribute("u_balance"));%> </h1>
+        <h2>CupCake butikken:</h2>
+        <h3>Vælg topping:</h3>
+        <div class="row">
+            <div class="col-sm-2"> 
+            Chokolade
+            <div class="panel-footer text-center">5.0,-</div>
+            Blåbær
+            <div class="panel-footer text-center">5.0,-</div>
+            hindbær
+            <div class="panel-footer text-center">5.0,-</div>
+        </div>
+            <h4>Vælg bund:</h4>
+        <div class="row">
+            Chokolade
+            <div class="panel-footer text-center">5.0,-</div>
+            Vanilie
+            <div class="panel-footer text-center">5.0,-</div>
+            Banan
+            <div class="panel-footer text-center">5.0,-</div>
+
+
+        </div>
+
     </body>
 </html>

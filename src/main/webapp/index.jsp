@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Login / Registrer</h1>
-        Login formular her - <a href="registration.jsp">Registration</a>
+        Registrer dig her - <a href="registration.jsp">Registration</a>
+        Log in her <a href="login.jsp">Login</a>
     </body>
 </html>
