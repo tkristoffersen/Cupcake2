@@ -12,7 +12,7 @@
         <title>Forside</title>
     </head>
     <body>
-        <h1>Her er forsiden</h1>
-        <a href="registration.jsp">Registration</a>
+        <h1>Login / Registrer</h1>
+        Login formular her - <a href="registration.jsp">Registration</a>
     </body>
 </html>
