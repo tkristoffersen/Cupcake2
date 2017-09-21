@@ -19,6 +19,13 @@
                 <p>Username:<br><input type="text" name="username" value="" placeholder=""></p>
                 <p>Password:<br><input type="password" name="password" value="" placeholder=""></p>
                 <button type="submit" class="btn btn-default" name="Login" value="Log in">Log me in</button>
+        </form>
+                <form method="get" action="registration.jsp">
+            <button type="submit">Go to registrationn</button>
+        </form>
+        <form method="get" action="index.jsp">
+              <button type="submit">Go Back to Index</button>
+        </form>
             </div>
         </form>
     </body>

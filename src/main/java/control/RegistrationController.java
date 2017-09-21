@@ -5,8 +5,11 @@
  */
 package control;
 
+import entity.User;
+import entity.Usermapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,16 +35,32 @@ public class RegistrationController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        //String email = request.getParameter("email");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-       // request.getSession().setAttribute("email", email);
-        request.getSession().setAttribute("username", username);
-        request.getSession().setAttribute("password", password);
-        
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
+
+        Usermapper um = new Usermapper();
+
+        String u_name = request.getParameter("u_name");
+        User testNameUser = um.getUserByName(u_name);
+
+        if (testNameUser.getu_id() != 0) {
+            request.getRequestDispatcher("error_user_exist.jsp").forward(request, response);
+
+        } else {
+            String u_pass = request.getParameter("u_pass");
+            double u_balance = Double.parseDouble(request.getParameter("u_balance"));
+            String u_email = request.getParameter("u_email");
+
+            User newUser = new User(u_name, u_pass, u_balance, u_email);
+
+            try {
+                um.putUser(newUser);
+                request.getRequestDispatcher("register_completed.jsp").forward(request, response);
+            } catch (SQLException ex) {
+                request.getRequestDispatcher("error_not_registered.jsp").forward(request, response);
+
+            }
+
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
