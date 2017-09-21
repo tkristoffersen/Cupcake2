@@ -1,6 +1,6 @@
 <%-- 
-    Document   : registration
-    Created on : 21-09-2017, 10:54:08
+    Document   : shop
+    Created on : 21-09-2017, 11:52:29
     Author     : tommy
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrer</title>
+        <title>Webshop</title>
     </head>
     <body>
-        <h1>Registrer dig her</h1>
+        <h1>Her er shoppen...</h1>
     </body>
 </html>
