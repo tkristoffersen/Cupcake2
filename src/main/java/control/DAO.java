@@ -21,20 +21,20 @@ public class DAO {
     }
 
     DBConnector db = new DBConnector();
-    public void insertOrder(int user_id, String b_name, String t_name, int b_price, int t_price) {
+    public void insertUser(int user_id, String u_name, String u_pass, int u_balance, String u_email) {
         PreparedStatement insertRS = null;
         
-        String stmtRS = "INSERT INTO orders (fkuser_id, b_name, t_name, b_price,t_price) VALUES (?,?,?,?,?)";
+        String stmtRS = "INSERT INTO users (user_id, u_name, u_pass, u_balance,u_email) VALUES (?,?,?,?,?)";
         try {
         
         insertRS = con.prepareStatement(stmtRS);
         
         
         insertRS.setInt(1, user_id);
-        insertRS.setString(2, b_name);
-        insertRS.setString(3, t_name);
-        insertRS.setInt(4, b_price);
-        insertRS.setInt(5,t_price);
+        insertRS.setString(2, u_name);
+        insertRS.setString(3, u_pass);
+        insertRS.setInt(4, u_balance);
+        insertRS.setString(5,u_email);
         
         insertRS.executeUpdate();
         
