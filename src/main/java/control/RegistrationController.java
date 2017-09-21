@@ -37,18 +37,18 @@ public class RegistrationController extends HttpServlet {
 
         UserMapper um = new UserMapper();
 
-        String u_name = request.getParameter("u_name");
-        User testNameUser = um.getUserByName(u_name);
+        String username = request.getParameter("username");
+        User testNameUser = um.getUserByName(username);
 
-        if (testNameUser.getu_id() != 0) {
+        if (testNameUser.getUser_id() != 0) {
             request.getRequestDispatcher("error_user_exist.jsp")
                     .forward(request, response);
         } else {
-            String u_pass = request.getParameter("u_pass");
-            double u_balance = Double.parseDouble(request.getParameter("u_balance"));
-            String u_email = request.getParameter("u_email");
+            String password = request.getParameter("password");
+            double balance = Double.parseDouble(request.getParameter("balance"));
+            String email = request.getParameter("email");
 
-            User newUser = new User(u_name, u_pass, u_balance, u_email);
+            User newUser = new User(username, password, balance, email);
 
             try {
                 um.putUser(newUser);
@@ -56,10 +56,13 @@ public class RegistrationController extends HttpServlet {
                         .forward(request, response);
 
             } catch (SQLException ex) {
-                request.getRequestDispatcher("error_not_registered.jsp").
-                        forward(request, response);
+                request.getRequestDispatcher("error_not_registered.jsp")
+                        .forward(request, response);
+
             }
+
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

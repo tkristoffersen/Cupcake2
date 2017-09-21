@@ -22,50 +22,51 @@ public class UserMapper {
     public User getUserByName(String name) {
         User output = null;
         try {
-            String sql = "SELECT u_id, u_name, u_pass, u_balance, u_email FROM Nydatabase.users where username='" + name+"'";
+            String sql = "SELECT user_id, username, password, balance, email FROM finalcupcake.users where username='" + name+"'";
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
-            int u_id = 0;
-            String u_name = "";
-            String u_pass = "";
-            double u_balance = 0;
-            String u_email = "";
+            int userID = 0;
+            String userName = "";
+            String password = "";
+            double balance = 0;
+            String email = "";
             while (rs.next()) {
-                u_id = rs.getInt("u_id");
-                u_name = name; //rs.getString("u_name");
-                u_pass = rs.getString("u_pass");
-                u_balance = rs.getDouble("u_balance");
-                u_email = rs.getString("u_email");
+                userID = rs.getInt("user_id");
+                userName = name; //rs.getString("username");
+                password = rs.getString("password");
+                balance = rs.getDouble("balance");
+                email = rs.getString("email");
             }
-            output = new User(u_name, u_pass, u_balance, u_email);
-            output.setu_id(u_id);
+            output = new User(userName, password, balance, email);
+            output.setUser_id(userID);
         }catch (SQLException ex) {
             return null;
         }
         return output;
     } 
     
+    
     public User getUserByID(int id) {
         User output = null;
         try{
-            String sql = "SELECT u_id, u_name, u_pass, u_balance, u_email FROM Nydatabase.users where u_id='" + id;
+            String sql = "SELECT user_id, username, password, balance, email FROM finalcupcake.users where u_id='" + id;
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
-            int u_id = 0;
-            String u_name = "";
-            String u_pass = "";
-            double u_balance = 0;
-            String u_email = "";
+            int userID = 0;
+            String userName = "";
+            String password = "";
+            double balance = 0;
+            String email = "";
             while (rs.next()) {
-                u_id = id;//rs.getInt("u_id");
-                u_name = rs.getString("u_name");
-                u_pass = rs.getString("u_pass");
-                u_balance = rs.getDouble("u_balance");
-                u_email = rs.getString("u_email");
+                userID = id;//rs.getInt("user_id");
+                userName = rs.getString("username");
+                password = rs.getString("password");
+                balance = rs.getDouble("balance");
+                email = rs.getString("email");
             }
-            output = new User( u_name, u_pass, u_balance, u_email);
-            output.setu_id(id);
+            output = new User(userName, password, balance, email);
+            output.setUser_id(id);
         }catch (Exception e) {
             return null;
         }
@@ -74,23 +75,22 @@ public class UserMapper {
     
     public void putUser(User user) throws SQLException {
         
-        int u_id = user.getu_id();
-        String u_name = user.getu_name();
-        String u_pass = user.getu_pass();
-        double u_balance = user.getu_balance();
-        String u_email = user.getu_email();
+        String name = user.getName();
+        String password = user.getPassword();
+        double balance = user.getBalance();
+        String email = user.getEmail();
         //String name, String password, double balance, String email
         Connection conn = DBConnector.getConnection();
-        String insertUser = "INSERT INTO Nydatabase.users ("
-                + "u_name, u_pass, u_balance, u_email)"
+        String insertUser = "INSERT INTO finalcupcake.users ("
+                + "username, password, balance, email)"
                 + "VALUES (?, ?, ?, ?);";
         PreparedStatement recipePstmt = conn.prepareStatement(insertUser);
         try {
             conn.setAutoCommit(false);
-            recipePstmt.setString(1, u_name);
-            recipePstmt.setString(2, u_pass);
-            recipePstmt.setDouble(3, u_balance);
-            recipePstmt.setString(4, u_email);
+            recipePstmt.setString(1, name);
+            recipePstmt.setString(2, password);
+            recipePstmt.setDouble(3, balance);
+            recipePstmt.setString(4, email);
             recipePstmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -100,6 +100,7 @@ public class UserMapper {
         } finally {
             conn.setAutoCommit(true);
         }
+        
     }
 }
 

@@ -19,7 +19,7 @@ public class DBConnector {
   private Connection conn;
     
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String URL = "jdbc:mysql://138.68.107.145:3306/Nydatabase";
+    private static String URL = "jdbc:mysql://138.68.107.145:3306/finalcupcake";
     private static String id = "tk";
     private static String pw = "MYto0706**";
 
@@ -52,7 +52,7 @@ public class DBConnector {
             String sql = "SELECT * from users";
             ResultSet rs = getConnection().prepareStatement(sql).executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getString("u_name"));
+                System.out.println(rs.getString("username"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

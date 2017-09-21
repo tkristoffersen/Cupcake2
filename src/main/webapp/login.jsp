@@ -13,11 +13,11 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="RegistrationController" method="post">
+        <form action="CheckLogin" method="post">
             <div class="container text-center">
                 <input type="hidden" name="origin" value="login">
-                <p>Username:<br><input type="text" name="u_name" value="" placeholder=""></p>
-                <p>Password:<br><input type="password" name="u_pass" value="" placeholder=""></p>
+                <p>Username:<br><input type="text" name="username" value="" placeholder=""></p>
+                <p>Password:<br><input type="password" name="password" value="" placeholder=""></p>
                 <button type="submit" class="btn btn-default" name="Login" value="Log in">Log me in</button>
         </form>
                 <form method="get" action="registration.jsp">

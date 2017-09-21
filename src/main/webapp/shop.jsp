@@ -12,7 +12,9 @@
         <title>Webshop</title>
     </head>
     <body>
-        <h1>Velkommen <% out.println(session.getAttribute("username"));%> Din Balance er <% out.println(session.getAttribute("u_balance"));%> </h1>
+        
+        <h1>Velkommen 
+            <% out.println(request.getParameter("username"));%> Din Balance er <% out.println(request.getParameter("balance"));%> </h1>
         <h2>CupCake butikken:</h2>
         <h3>Vælg topping:</h3>
         <div class="row">

@@ -16,13 +16,13 @@
         
         <form action="RegistrationController">   
             <b>Username:</b><br>
-            <input type="text" name="u_name" value=""><br><br>
+            <input type="text" name="username" value=""><br><br>
             <b>Password:</b><br>
-            <input type="password" name="u_pass" value=""><br><br>
+            <input type="password" name="password" value=""><br><br>
             <b>Balance:</b><br>
-            <input type="text" name="u_balance" value=""><br><br>
+            <input type="text" name="balance" value=""><br><br>
             <b>Email:</b><br>
-            <input type="text" name="u_email" value=""><br><br>
+            <input type="text" name="email" value=""><br><br>
 
             <input type="submit" name="submit" value="Registrer">
         </form>

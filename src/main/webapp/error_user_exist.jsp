@@ -14,9 +14,9 @@
     <body>
         <div>
             <h1>Error!</h1>
-            <% String u_name = request.getParameter("u_name");%>
+            <% String username = request.getParameter("username");%>
 
-            <h2>The username <%=u_name%> is already used by another user. 
+            <h2>The username <%=username%> is already used by another user. 
                 <br>Please choose another username.</h2><br>
 
             <form method="get" action="registration.jsp">

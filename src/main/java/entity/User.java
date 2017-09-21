@@ -11,65 +11,64 @@ package entity;
  */
 public class User {
 
-    int u_id;
-    String u_name;
-    String u_pass;
-    double u_balance;
-    String u_email;
+    int user_id;
+    String name;
+    String password;
+    double balance;
+    String email;
+    
 
     public User(String name, String password, double balance, String email) {
-        //this.u_id = id;
-        this.u_name = name;
-        this.u_pass = password;
-        this.u_balance = balance;
-        this.u_email = email;
+        //this.user_id = user_id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.balance = balance;
     }
 
-    public void setu_id(int id) {
-        this.u_id = id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getu_id() {
-        return u_id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setu_name(String name) {
-        this.u_name = name;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getu_name() {
-        return u_name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setu_pass(String password) {
-        this.u_pass = password;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
-    public String getu_pass() {
-        return u_pass;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setu_balance(double balance) {
-        this.u_balance = balance;
+    public String getName() {
+        return name;
     }
 
-    public double getu_balance() {
-        return u_balance;
+    public String getPassword() {
+        return password;
     }
 
-    public void setu_email(String email) {
-
-        this.u_email = email;
+    public String getEmail() {
+        return email;
     }
 
-    public String getu_email() {
-
-        return u_email;
+    public double getBalance() {
+        return balance;
     }
-    
+
     @Override
-    public String toString(){
-        return "User{" + "u_id=" + u_id + ", name=" + u_name + ", password=" + u_pass +  ", balance=" + u_balance + ", email=" + u_email + '}';
+    public String toString() {
+        return "User{" + "user_id=" + user_id + ", name=" + name + ", password=" + password + ", balance=" + balance + ", email=" + email + '}';
     }
 
 }

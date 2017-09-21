@@ -5,9 +5,7 @@
  */
 package control;
 
-import entity.Bottom;
-import entity.CakeMapper;
-import entity.Topping;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,38 +13,50 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author lucas kuhn
+ * @author tobbe
  */
-@WebServlet(name = "ControlCake", urlPatterns = {"/ControlCake"})
-public class ControlCake extends HttpServlet {
+@WebServlet(name = "CheckLogin", urlPatterns = {"/CheckLogin"})
+public class CheckLogin extends HttpServlet {
 
-    
-    CakeMapper cm = new CakeMapper();
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+       
+        UserMapper um = new UserMapper();
         
-         
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         
-        int topping = Integer.parseInt(request.getParameter("top"));
-        int bottom = Integer.parseInt(request.getParameter("bot"));
+        User loggedInUser = um.getUserByName(username);
         
-        Topping top = cm.getSingleTopping(topping);
-        Bottom bot = cm.getSingleBottom(bottom);
-        
-        
-        
-        request.getSession().setAttribute("top", top);
-        request.getSession().setAttribute("bot", bot);
-        
-        request.getRequestDispatcher("orderview.jsp").forward(request, response);
-        
-        
-        //Topping top = cm.g
-    
+        if (loggedInUser == null) {
+            request.getRequestDispatcher("login_error.jsp")
+                    .forward(request, response);
+            
+             } else if (!loggedInUser.getPassword().equals(password)) {
+            request.getRequestDispatcher("login_error.jsp")
+                    .forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", loggedInUser);
+            
+            request.getRequestDispatcher("shop.jsp")
+                    .forward(request, response);
+                
+                }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

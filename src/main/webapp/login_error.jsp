@@ -1,6 +1,6 @@
 <%-- 
-    Document   : register_completed
-    Created on : 21-09-2017, 15:57:06
+    Document   : login_error
+    Created on : 21-09-2017, 18:25:40
     Author     : tobbe
 --%>
 
@@ -13,16 +13,19 @@
     </head>
     <body>
         <div>
-            <h1>Succes</h1>
-            <% String username = request.getParameter("username"); %>
-            
-            <h2>The user <%=username%> has been succesfully registered. 
-            <br>Please login before you continue.</h2><br>
-            
+            <h1>Error!</h1>
+
+            <h2>Username or password is incorrect 
+            <br>or user does not exits.</h2><br>
+
             <form method="get" action="login.jsp">
                 <button type="submit">Go to Login</button>
             </form>
+            <br>
+            <form method="get" action="registration.jsp">
+                <button type="submit">Register new user</button>
+            </form>
 
-        </div> 
+        </div>
     </body>
 </html>
