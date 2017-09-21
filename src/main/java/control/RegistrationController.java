@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author lucas kuhn
  */
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
-public class Controller extends HttpServlet {
+public class RegistrationController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,13 +33,15 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
+        request.getSession().setAttribute("email", email);
         request.getSession().setAttribute("username", username);
         request.getSession().setAttribute("password", password);
         
-        request.getRequestDispatcher("loginview.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
