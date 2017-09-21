@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class DBConnector {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://138.68.107.145:3306/TommyDB?autoReconnect=true&useSSL=false";
+    private static final String URL = "jdbc:mysql://138.68.107.145:3306/TommyDB";
     private static final String USER = "tk";
     private static final String PASSWORD = "MYto0706**";
     private static Connection conn = null;

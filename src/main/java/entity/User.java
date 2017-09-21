@@ -24,43 +24,43 @@ public class User
         u_balance = bl;
     }
 
-    public double getU_balance()
+    public double getu_balance()
     {
         return u_balance;
     }
 
-    public void setU_balance(double u_balance)
+    public void setu_balance(double u_balance)
     {
         this.u_balance = u_balance;
     }
     
 
-    public int getU_id()
+    public int getu_id()
     {
         return u_id;
     }
 
-    public void setU_id(int u_id)
+    public void setu_id(int u_id)
     {
         this.u_id = u_id;
     }
 
-    public String getU_name()
+    public String getu_name()
     {
         return u_name;
     }
 
-    public void setU_name(String u_name)
+    public void setu_name(String u_name)
     {
         this.u_name = u_name;
     }
 
-    public String getU_pass()
+    public String getu_pass()
     {
         return u_pass;
     }
 
-    public void setU_pass(String u_pass)
+    public void setu_pass(String u_pass)
     {
         this.u_pass = u_pass;
     }
