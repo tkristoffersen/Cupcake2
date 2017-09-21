@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Forside</title>
     </head>
     <body>
         <h1>Her er forsiden</h1>
-        <a href="#" her er et link>her er et link</a>
+        <a href="registration.jsp">Registration</a>
     </body>
 </html>
