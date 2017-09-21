@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Her er forsiden</h1>
-        <a href="#" her er et link></a>
+        <a href="#" her er et link>her er et link</a>
     </body>
 </html>
