@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas kuhn
  */
-public class Controlcake extends HttpServlet {
+public class ControlCake extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
