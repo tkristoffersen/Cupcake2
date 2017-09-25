@@ -5,7 +5,7 @@
  */
 package control;
 
-import control.DBConnector;
+import DBConnector.DBConnector;
 import entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

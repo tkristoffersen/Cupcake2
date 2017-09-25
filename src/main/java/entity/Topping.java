@@ -10,55 +10,44 @@ package entity;
  * @author lucas kuhn
  */
 public class Topping {
-    private int t_id;
-    private String t_name;
-    private double t_price;
-    private String t_image;
 
-    public Topping(int t_id, String topping, double t_price, String t_image) {
-        this.t_id = t_id;
-        this.t_name = topping;
-        this.t_price = t_price;
-        this.t_image = t_image;
+    private int id;
+    private String name;
+    private double price;
+
+    public Topping(int id) {
+        this.id = id;
+        //this.name = topping;
+        //this.price = price;
+
     }
 
-    public Topping() {
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getT_id() {
-        return t_id;
+    public int getId() {
+        return id;
     }
 
-    public void setT_id(int t_id) {
-        this.t_id = t_id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getT_name() {
-        return t_name;
+    public String getName() {
+        return name;
     }
 
-    public void setT_name(String t_name) {
-        this.t_name = t_name;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public double getT_price() {
-        return t_price;
-    }
-
-    public void setT_price(double t_price) {
-        this.t_price = t_price;
-    }
-
-    public String getT_image() {
-        return t_image;
-    }
-
-    public void setT_image(String t_image) {
-        this.t_image = t_image;
+    public double getPrice() {
+        return price;
     }
 
     @Override
     public String toString() {
-        return "Topping{" + "t_id=" + t_id + ", topping=" + t_name + ", t_price=" + t_price + ", t_image=" + t_image + '}';
+        return "Topping{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
     }
 }
