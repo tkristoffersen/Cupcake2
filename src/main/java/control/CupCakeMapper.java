@@ -42,7 +42,7 @@ public class CupCakeMapper {
         List<Bottom> output = new ArrayList<Bottom>();
         try{   
             String sql = "SELECT bottom_id "
-                    + "FROM cupcake.bottoms";
+                    + "FROM bottoms";
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
@@ -64,7 +64,7 @@ public class CupCakeMapper {
         Topping output = topping;
         try {
             String sql = "SELECT name, price "
-                    + "FROM cupcake.toppings where topping_id =" + 
+                    + "FROM toppings where topping_id =" + 
                     topping.getId();
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -87,7 +87,7 @@ public class CupCakeMapper {
         Topping output = new Topping(id);
         try {
             String sql = "SELECT name, price "
-                    + "FROM cupcake.toppings where topping_id =" + 
+                    + "FROM toppings where topping_id =" + 
                     id;
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -111,7 +111,7 @@ public class CupCakeMapper {
         Bottom output = bottom;
         try{
             String sql = "SELECT name, price "
-                    + "FROM cupcake.bottoms where bottom_id =" + 
+                    + "FROM bottoms where bottom_id =" + 
                     bottom.getId();
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -134,7 +134,7 @@ public class CupCakeMapper {
         Bottom output = new Bottom(id);
         try{
             String sql = "SELECT name, price "
-                    + "FROM cupcake.bottoms where bottom_id =" + 
+                    + "FROM bottoms where bottom_id =" + 
                     id;
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -152,9 +152,5 @@ public class CupCakeMapper {
         }
         return output;
     }
-    
-    
-    
-    
-    
+
 }

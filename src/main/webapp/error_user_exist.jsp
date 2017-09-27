@@ -22,6 +22,9 @@
             <form method="get" action="registration.jsp">
                 <button type="submit">Register new user</button>
             </form>
+                <form method="get" action="login.jsp">
+                <button type="submit">Login</button>
+            </form>
 
         </div>
     </body>

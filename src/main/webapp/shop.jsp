@@ -4,6 +4,12 @@
     Author     : tommy
 --%>
 
+<%@page import="control.CupCakeMapper"%>
+<%@page import="entity.User"%>
+<%@page import="entity.OrderLine"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entity.Bottom"%>
+<%@page import="entity.Topping"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,30 +19,28 @@
     </head>
     <body>
         
-        <h1>Velkommen 
-            <% out.println(request.getParameter("username"));%> Din Balance er <% out.println(request.getParameter("balance"));%> </h1>
-        <h2>CupCake butikken:</h2>
-        <h3>Vælg topping:</h3>
-        <div class="row">
-            <div class="col-sm-2"> 
-            Chokolade
-            <div class="panel-footer text-center">5.0,-</div>
-            Blåbær
-            <div class="panel-footer text-center">5.0,-</div>
-            hindbær
-            <div class="panel-footer text-center">5.0,-</div>
-        </div>
-            <h4>Vælg bund:</h4>
-        <div class="row">
-            Chokolade
-            <div class="panel-footer text-center">5.0,-</div>
-            Vanilie
-            <div class="panel-footer text-center">5.0,-</div>
-            Banan
-            <div class="panel-footer text-center">5.0,-</div>
+        <h1>Velkommen</h1>
+        
+        <%User user = (User) (session.getAttribute("user"));
+            String username = user.getName();
+            double balance = user.getBalance();
+            ArrayList<Topping> toppingList = (ArrayList) (session.getAttribute("toppingList"));
+            ArrayList<Bottom> bottomList = (ArrayList) (session.getAttribute("bottomList"));
+            ArrayList<OrderLine> orderlineList = (ArrayList) (session.getAttribute("orderLines"));
+            
+            
+            %>
+            <div class='brugerP'>
+            Customer : <b><%=username%></b> - Balance = <b><%=balance%></b><br>
+            </div>
+            <h2>CupCake butikken:</h2>
+        
 
-
-        </div>
-
+                    <div class="logout">
+                <form method="get" action="login.jsp">
+                    <input type="submit" name="submit" value="Log Out">
+                </form>
+                        
+            </div>
     </body>
 </html>

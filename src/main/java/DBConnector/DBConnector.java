@@ -19,9 +19,9 @@ public class DBConnector {
   private Connection conn;
     
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String URL = "jdbc:mysql://138.68.107.145:3306/finalcupcake";
-    private static String id = "tk";
-    private static String pw = "MYto0706**";
+    private static String URL = "jdbc:mysql://localhost:3306/cupcake";
+    private static String id = "root";
+    private static String pw = "1234";
 
     public static Connection getConnection() {
         Connection conn = null;

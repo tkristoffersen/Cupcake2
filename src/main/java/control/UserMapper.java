@@ -22,7 +22,7 @@ public class UserMapper {
     public User getUserByName(String name) {
         User output = null;
         try {
-            String sql = "SELECT user_id, username, password, balance, email FROM finalcupcake.users where username='" + name+"'";
+            String sql = "SELECT user_id, username, password, balance, email FROM users where username='" + name+"'";
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
@@ -50,7 +50,7 @@ public class UserMapper {
     public User getUserByID(int id) {
         User output = null;
         try{
-            String sql = "SELECT user_id, username, password, balance, email FROM finalcupcake.users where u_id='" + id;
+            String sql = "SELECT user_id, username, password, balance, email FROM users where user_id='" + id;
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             int userID = 0;
@@ -81,7 +81,7 @@ public class UserMapper {
         String email = user.getEmail();
         //String name, String password, double balance, String email
         Connection conn = DBConnector.getConnection();
-        String insertUser = "INSERT INTO finalcupcake.users ("
+        String insertUser = "INSERT INTO users ("
                 + "username, password, balance, email)"
                 + "VALUES (?, ?, ?, ?);";
         PreparedStatement recipePstmt = conn.prepareStatement(insertUser);
