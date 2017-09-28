@@ -21,9 +21,16 @@ menu.onsubmit = function () {
     var emailInput = document.getElementById("email").value;
     console.log(emailInput);
     
-    var result = checkInput(nameInput, nameRegExp, passwordInput, passwordRegExp, balanceInput, passwordRegExp, emailInput, emailRegExp);
-    console.log(result);
-    return result; 
+    var nameResult = checkInput(nameInput, nameRegExp);
+    var passwordResult = checkInput(passwordInput, passwordRegExp);
+    var balanceResult = checkInput(balanceInput, passwordRegExp);
+    var emailResult = checkInput(emailInput, emailRegExp);
+    console.log(nameResult);
+    console.log(passwordResult);
+    console.log(balanceResult);
+    console.log(emailResult);
+ 
+    return nameResult && passwordResult && balanceResult && emailResult; 
 };
 
 function checkInput(value, regexp) {
@@ -33,3 +40,4 @@ function checkInput(value, regexp) {
     }
     return true;
 }
+
