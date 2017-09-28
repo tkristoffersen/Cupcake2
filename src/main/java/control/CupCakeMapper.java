@@ -16,14 +16,14 @@ import java.util.List;
 
 public class CupCakeMapper {
     
-    public List<Topping> getListOfTops(){
-        List<Topping> output = new ArrayList<Topping>();
-        try{
-            String sql = "SELECT topping_id"
-                    + "From toppings";
+    public List<Topping> getListOfToppings() {
+        List<Topping> output = new ArrayList();
+        try{   
+            String sql = "SELECT topping_id "
+                    + "FROM toppings";
             PreparedStatement pstmt = DBConnector.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
-            
+
             Topping mytop = null;
             int topping_id = 0;
             while (rs.next()) {
@@ -32,14 +32,14 @@ public class CupCakeMapper {
                 mytop = this.getToppingByToppingId(mytop);
                 output.add(mytop);
             }
-        }catch (Exception e){
+        }catch (Exception e) {
             return null;
         }
         return output;
     }
     
-    public List<Bottom> getListOfBots() {
-        List<Bottom> output = new ArrayList<Bottom>();
+    public List<Bottom> getListOfBottoms() {
+        List<Bottom> output = new ArrayList();
         try{   
             String sql = "SELECT bottom_id "
                     + "FROM bottoms";

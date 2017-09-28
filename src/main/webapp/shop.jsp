@@ -4,6 +4,9 @@
     Author     : tommy
 --%>
 
+<%@page import="control.RendUtilBottom"%>
+<%@page import="control.RendUtilTopping"%>
+<%@page import="java.util.List"%>
 <%@page import="control.CupCakeMapper"%>
 <%@page import="entity.User"%>
 <%@page import="entity.OrderLine"%>
@@ -24,18 +27,32 @@
         <%User user = (User) (session.getAttribute("user"));
             String username = user.getName();
             double balance = user.getBalance();
-            ArrayList<Topping> toppingList = (ArrayList) (session.getAttribute("toppingList"));
-            ArrayList<Bottom> bottomList = (ArrayList) (session.getAttribute("bottomList"));
-            ArrayList<OrderLine> orderlineList = (ArrayList) (session.getAttribute("orderLines"));
-            
-            
             %>
+            
             <div class='brugerP'>
             Customer : <b><%=username%></b> - Balance = <b><%=balance%></b><br>
             </div>
+            
             <h2>CupCake butikken:</h2>
         
+    <container class="column">
+            <%CupCakeMapper cupcakeList = new CupCakeMapper();%>
+            
+            <%
+            List<Topping> toppingList = cupcakeList.getListOfToppings();
+            List<Bottom> bottomList = cupcakeList.getListOfBottoms();
+            %>
+            
+            <%= RendUtilTopping.toppingTable(toppingList)%>
+        <br>
+        <br>
+        <br>
+         <%= RendUtilBottom.bottomTable(bottomList)%>
+        </container>
+        <button type="submit" >See your CupCake </button>
 
+        
+        
                     <div class="logout">
                 <form method="get" action="login.jsp">
                     <input type="submit" name="submit" value="Log Out">
