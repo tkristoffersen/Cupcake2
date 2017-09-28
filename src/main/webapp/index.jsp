@@ -10,10 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Forside</title>
+        
+        <link href="newcss.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Login / Registrer</h1>
         Registrer dig her - <a href="registration.jsp">Registration</a>
         Log in her <a href="login.jsp">Login</a>
+        
     </body>
 </html>
