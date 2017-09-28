@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author tobbe
  */
-public class RendUtilBottom {
+public class RenderBottom {
     
 public static String bottomTable(List<Bottom> boot) {
         StringBuilder sb = new StringBuilder();

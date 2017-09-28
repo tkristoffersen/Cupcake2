@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author tobbe
  */
-public class RendUtilTopping {
+public class RenderTopping {
     
 public static String toppingTable(List<Topping> topps) {
         StringBuilder sb = new StringBuilder();

@@ -53,15 +53,15 @@ li a:hover:not(.active) {
   </ul>
         <h1>Registrer dig her</h1>
         
-        <form action="RegistrationController">   
+        <form id="menu" action="RegistrationController">   
            <div <b>Username:</b><br> 
-             <input type="text" name="username" value=""><br><br> </div>
+             <input type="text" name="username" value="" id="name"><br><br> </div>
             <div <b>Password:</b><br> 
-                <input type="password" name="password" value=""><br><br> </div>
+                <input type="password" name="password" value="" id="password"><br><br> </div>
            <div <b>Balance:</b><br>
-           <input type="text" name="balance" value=""><br><br> </div>
+           <input type="text" name="balance" value="" id="balance"><br><br> </div>
            <div <b>Email:</b><br>
-               <input type="text" name="email" value=""><br><br> </div>
+               <input type="text" name="email" value="" id="email"><br><br> </div>
 
             <input type="submit" name="submit" value="Registrer">
         </form>
@@ -73,5 +73,7 @@ li a:hover:not(.active) {
         <form method="get" action="index.jsp">
               <button type="submit">Go Back to Index</button>
         </form>
+        
+        <script src="cupcakescript.js" type="text/javascript"></script>
     </body>
 </html>

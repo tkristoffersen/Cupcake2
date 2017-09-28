@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 28-09-2017, 15:10:51
     Author     : tobbe
 */
-<body>
+
 
 
 
@@ -19,14 +19,14 @@ div {
 }
 
   body {
-      color:#FFFDD0
+      color:#FFFDD0;
     background-image: url("https://i.pinimg.com/736x/0a/b7/98/0ab79898f2e54fe35bd318ff6d21ffc3--cupcake-logo-fun-cupcakes.jpg");
     background-color: #d2691e;
     background-position: right;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    font
+    
 }
 h1 {
     color : #FFFDD0;
